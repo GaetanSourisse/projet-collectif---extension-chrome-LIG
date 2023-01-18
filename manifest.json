@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name" : "Ada Access",
+    "version" :"0.1",
+    "content_scripts": [
+        {
+            "matches" : ["<all_urls>"],
+            "css": ["style.css"],
+            "js":["script.js"]
+        }
+    ],
+    
+    "action": {
+        "default_title": "Ada Access",
+        "default_popup": "popup.html"
+    },
+    
+    "permissions": [
+        "activeTab"
+        
+    ]
+    }
