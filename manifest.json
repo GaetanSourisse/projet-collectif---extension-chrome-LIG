@@ -3,12 +3,12 @@
     "name" : "Ada Access",
     "version" :"0.1",
     "content_scripts": [
-        {
-            "matches" : ["<all_urls>"],
-            "css": ["style.css"],
-            "js":["script.js"]
+        { 
+            "matches": ["<all_urls>"],
+            "js": ["appOn.js"]
         }
     ],
+    
     
     "action": {
         "default_title": "Ada Access",
@@ -16,7 +16,12 @@
     },
     
     "permissions": [
-        "activeTab"
-        
+        "scripting",
+        "tabs"
+    
+    ],
+
+    "host_permissions":[
+        "<all_urls>"
     ]
-    }
+}

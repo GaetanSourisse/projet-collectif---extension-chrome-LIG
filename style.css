@@ -1,17 +1,16 @@
-/*body {
+body {
     cursor: none;
 }
 
-* :hover {
-    color: white;
-    background-color: black;
+html :hover {
+
     font-size: xx-large;
 }
 
 a {
     color: deepskyblue;
     text-decoration: none;
-}*/
+}
 
 #loupe {
     width: 60px;
