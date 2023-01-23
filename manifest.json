@@ -2,13 +2,11 @@
     "manifest_version": 3,
     "name" : "Ada Access",
     "version" :"0.1",
-    "content_scripts": [
-        { 
-            "matches": ["<all_urls>"],
-            "js": ["appOn.js"]
-        }
-    ],
-    
+    "author" : {
+        "author 1": "Gaëtan Sourisse",
+        "author 2": "Imane Zaki",
+        "author 3": "Lorena Campos"
+    },
     
     "action": {
         "default_title": "Ada Access",
@@ -17,9 +15,13 @@
     
     "permissions": [
         "scripting",
-        "tabs"
-    
+        "tabs",
+        "storage"
     ],
+    
+    "background": {
+        "service_worker": "background.js"
+    },
 
     "host_permissions":[
         "<all_urls>"
