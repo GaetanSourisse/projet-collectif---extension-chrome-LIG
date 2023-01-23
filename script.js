@@ -1,3 +1,5 @@
+//fichier non utilisé pour le moment
+
 console.log("prout");
 let loupe = document.createElement('div');
 loupe.setAttribute('id','loupe');
