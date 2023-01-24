@@ -1,28 +1,31 @@
 //on écoute le changement du storage déclenché par le bouton de la popup
-chrome.storage.local.onChanged.addListener(() => {
-    //puis on lance le changement de contraste et la loupe.
-    chrome.storage.local.get({
-        status: objVerif = {
-          value: true
+chrome.storage.onChanged.addListener(() => {
+    chrome.storage.local.get(["toggle"]).then ((result) => {
+        console.log(result.toggle)
+        if (result.toggle == true){
+            console.log("ça marche")
+            contrast();
+            createLoupe(); 
+        } else {
+            console.log("ça marche aussi");
+            noContrast();
+            deleteLoupe();
         }
-      })
-    if (objVerif.value == true){
-        console.log("ça marche")
-        contrast();
-        createLoupe();
-        chrome.storage.local.set({
-            status: objVerif = {
-              value: false
-            }
-          })
-    }
-    
-   else (objVerif.value == false);{
-        contrast();
-        deleteLoupe();
-
-    }
+    })
 })
+    //puis on lance le changement de contraste et la loupe.
+    
+function noContrast(){
+    document.body.style.filter = "invert(0) hue-rotate(180deg)"
+    document.body.style.fontSize = "medium"
+    let media = document.querySelectorAll("img, picture, video")
+    media.forEach((mediaItem) =>{
+    mediaItem.style.filter = "invert(0) hue-rotate(180deg)"
+    })
+}    
+      
+        
+        
 
 
 
