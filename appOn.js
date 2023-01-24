@@ -62,7 +62,7 @@ function suitsouris(evenement) {
 }
     
 function deleteLoupe (){
-    document.getElementById("loupe").style.display = "none"
+    document.getElementById("loupe").remove()
 }
 
 
