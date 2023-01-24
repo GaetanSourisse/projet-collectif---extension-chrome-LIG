@@ -5,7 +5,8 @@ chrome.storage.onChanged.addListener(() => {
         if (result.toggle == true){
             console.log("ça marche")
             contrast();
-            createLoupe(); 
+            createLoupe();
+            suitsouris(evenement);
         } else {
             console.log("ça marche aussi");
             noContrast();
@@ -24,11 +25,6 @@ function noContrast(){
     })
 }    
       
-        
-        
-
-
-
 function contrast (){
     // creer le contraste de la page web. modifiaction du css via js.
 
@@ -52,17 +48,22 @@ function createLoupe (){
     loupe.style.borderRadius = "60px"
     loupe.style.border = "solid 3px rgb(212, 8, 42)"
     loupe.style.position = "absolute"
-
-    // zoom et mouvement de la loupe
-    let zoom = 1
-    document.body.onmousemove = function(){
-        loupe.style.left = event.clientX + "px";
-        loupe.style.top = event.clientY + "px";
-        loupe.style.backgroundSize = (1000 * zoom) + "px";
-        loupe.style.backgroundPosition = ((-loupe.offsetLeft * zoom) - 150) + "px " + ((-loupe.offsetTop * zoom) - 150) + "px ";
-    }
+    loupe.style.transform= "translateX(-90%) translateY(-90%)"
 }
-
+    
+// fonction pour que la loupe suive la souris
+document.onmousemove = suitsouris;
+function suitsouris(evenement) {
+    var x = evenement.pageX;
+    var y = evenement.pageY;
+            
+    document.getElementById("loupe").style.left = (x + 1) + 'px';
+    document.getElementById("loupe").style.top = (y + 1) + 'px';
+}
+    
 function deleteLoupe (){
-    loupe.style.display = "none"
+    document.getElementById("loupe").style.display = "none"
 }
+
+
+
