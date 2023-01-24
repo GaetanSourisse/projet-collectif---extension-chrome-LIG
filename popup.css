@@ -1,3 +1,28 @@
+body {
+width: 300px;
+background-color: #B6EADA;
+}
+
+.description {
+border: 2px solid #5B8FB9;
+padding: 20px;
+}
+
+h1 {
+  color : #301E67;
+  font-size: 25px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+p {
+  color: #301E67;
+  font-size: 15px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
 /*code pour paramétrer visuellement le bouton switch*/
 .switch {
     position: relative;
@@ -37,11 +62,11 @@
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #5B8FB9;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #5B8FB9;
   }
   
   input:checked + .slider:before {

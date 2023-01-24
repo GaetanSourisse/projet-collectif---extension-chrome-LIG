@@ -2,6 +2,10 @@
     "manifest_version": 3,
     "name" : "Ada Access",
     "version" :"0.1",
+    "icons": {
+        "128": "glasses.png"
+      },
+
     "author" : {
         "author 1": "Gaëtan Sourisse",
         "author 2": "Imane Zaki",
