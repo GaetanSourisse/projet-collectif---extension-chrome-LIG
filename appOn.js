@@ -14,11 +14,11 @@ chrome.storage.onChanged.addListener(() => {
         }
     })
 })
-    //puis on lance le changement de contraste et la loupe.
-    
+
+
 function noContrast(){
     document.body.style.filter = "invert(0) hue-rotate(180deg)"
-    document.body.style.fontSize = "medium"
+    //document.body.style.fontSize = "medium"
     let media = document.querySelectorAll("img, picture, video")
     media.forEach((mediaItem) =>{
     mediaItem.style.filter = "invert(0) hue-rotate(180deg)"
@@ -29,7 +29,7 @@ function contrast (){
     // creer le contraste de la page web. modifiaction du css via js.
 
     document.body.style.filter = "invert(1) hue-rotate(180deg)"
-    document.body.style.fontSize = "xx-large"
+    //document.body.style.fontSize = "xx-large"
     let media = document.querySelectorAll("img, picture, video")
     media.forEach((mediaItem) =>{
     mediaItem.style.filter = "invert(1) hue-rotate(180deg)"
@@ -42,13 +42,17 @@ function createLoupe (){
     loupe.setAttribute('id','loupe');
     document.body.appendChild(loupe);
 
-    // css de la loupe
-    loupe.style.width = "100px"
-    loupe.style.height = "100px"
-    loupe.style.borderRadius = "60px"
-    loupe.style.border = "solid 3px rgb(212, 8, 42)"
-    loupe.style.position = "absolute"
-    loupe.style.transform= "translateX(-90%) translateY(-90%)"
+    chrome.storage.local.get(["image"]).then ((result) =>{
+        // css de la loupe
+        loupe.style.width = "200px"
+        loupe.style.height = "200px"
+        loupe.style.borderRadius = "110px"
+        loupe.style.border = "solid 3px rgb(212, 8, 42)"
+        loupe.style.background = "url("+result.image+")"
+        loupe.style.position = "absolute"
+        loupe.style.transform= "translateX(-90%) translateY(-90%)"
+        
+    })
 }
     
 // fonction pour que la loupe suive la souris
@@ -56,9 +60,11 @@ document.onmousemove = suitsouris;
 function suitsouris(evenement) {
     var x = evenement.pageX;
     var y = evenement.pageY;
-            
+    let zoom = 3        
     document.getElementById("loupe").style.left = (x + 1) + 'px';
     document.getElementById("loupe").style.top = (y + 1) + 'px';
+    document.getElementById("loupe").style.backgroundSize = (1680 * zoom) + "px";
+    document.getElementById("loupe").style.backgroundPosition = (-(document.getElementById("loupe").offsetLeft) * zoom) + "px " + (-(document.getElementById("loupe").offsetTop) * zoom) + "px ";
 }
     
 function deleteLoupe (){
