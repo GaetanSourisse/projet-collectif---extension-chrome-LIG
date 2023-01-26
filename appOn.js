@@ -29,12 +29,11 @@ function contrast (){
     // creer le contraste de la page web. modifiaction du css via js.
 
     document.body.style.filter = "invert(1) hue-rotate(180deg)"
-    //document.body.style.fontSize = "xx-large"
     let media = document.querySelectorAll("img, picture, video")
     media.forEach((mediaItem) =>{
     mediaItem.style.filter = "invert(1) hue-rotate(180deg)"
-    })
-}
+    });
+};
 
 function createLoupe (){
     // creation de la loupe
@@ -55,14 +54,14 @@ function createLoupe (){
     })
 }
     
-// fonction pour que la loupe suive la souris
+// fonction pour que la loupe suive la souris et zoom
 document.onmousemove = suitsouris;
 function suitsouris(evenement) {
     var x = evenement.pageX;
     var y = evenement.pageY;
     let zoom = 3        
-    document.getElementById("loupe").style.left = (x + 1) + 'px';
-    document.getElementById("loupe").style.top = (y + 1) + 'px';
+    document.getElementById("loupe").style.left = x + 'px';
+    document.getElementById("loupe").style.top = y + 'px';
     document.getElementById("loupe").style.backgroundSize = (1680 * zoom) + "px";
     document.getElementById("loupe").style.backgroundPosition = (-(document.getElementById("loupe").offsetLeft) * zoom) + "px " + (-(document.getElementById("loupe").offsetTop) * zoom) + "px ";
 }

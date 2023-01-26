@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', function (){
     chrome.storage.local.set({toggle: false})
     
     function onclick(){
-        //changement de la valeur de "toogle"
-        //pour pouvoir écouter le changement dans appOn.js
+        //changement de la valeur de "toggle", pour pouvoir écouter le changement dans appOn.js
 
         //on récupère la valeur de toggle et on lui asssigne une valeur true ou false
         chrome.storage.local.get(["toggle"]).then((result) => {
